@@ -1,0 +1,75 @@
+body {
+    background-image: linear-gradient(rgb(167, 208, 221),rgb(248, 176, 168));
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.login{
+    flex: 40%;
+    background-color:white;
+    margin: 25px;
+    padding: 20px;
+    border-radius: 20px;  
+    height: 100%; 
+}
+
+.registration{
+    flex:60%;
+    background-color: white;
+    margin: 25px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+input[type=number]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+section{
+    display: flex;
+}
+
+.buttons{
+    display: flex;
+    padding: 20px 0;
+}

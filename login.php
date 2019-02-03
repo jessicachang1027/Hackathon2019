@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="refresh" content="3;url=./index.html" />
-
+    <!--<meta http-equiv="refresh" content="3;url=./index.html" />
+-->
 
     <!-- Bootstrap CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
@@ -66,20 +66,26 @@ if ($con->connect_error) {
 
 }
 
+$uname = $_POST['username'];
+$pass = $_POST['pw'];
 
-$sql="INSERT INTO users (uname, password, email, pronouns, age, bio)
+if($uname =='' || $pass==''){
+    header("Location:login.php?id=Some fields are empty");
+} 
 
-VALUES
+$sql= "SELECT * FROM users WHERE uname = '$uname'";
+$result = $con->query($sql);
 
-('$_POST[uname]','$_POST[pw]', '$_POST[email]', '$_POST[pronouns]', '$_POST[age]', '$_POST[bio]')";
-
- 
-
-if ($con->query($sql) === TRUE){
-  echo "<br><h2 style='text-align: center;'>Account created successfully!</h2>";
-  echo "<br><h4 style='text-align: center;'>Redirecting you in 3 seconds...</h4>";
+if ($result){
+    $row = $result->fetch_array();
+    if($uname==$row['uname'] && $pass==$row['password']) {
+        header("Location:index.html");
+    } else {
+        header("Location:login_error.html");
+    }
+    
 } else{
-  echo "Error: " . $sql . "<br>" . $con->error;
+    echo "Query Failed: " . $sql . "<br>" . $con->error;
 } 
 
 $con->close();
