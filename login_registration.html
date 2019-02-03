@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/login_registration_style.css" rel="stylesheet">
     
     <title>Hackathon 2019</title>
 </head>
@@ -15,7 +15,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
+    <div class="container" >
         <div class="navbar-header">
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="./index.html">
@@ -49,8 +49,12 @@
     </div>
 </nav>
 
-<div>
+<div class="container">
+
+<div class="registration">
 <form action="./registration.php" method="post">
+    <h3>Registration</h3>
+    <hr>
     <label for="pronouns">Pronouns:</label>
     <input id="pronouns" name="pronouns" type="text">
     <br>
@@ -68,8 +72,7 @@
     <br>
     <label for="disorders">Mental Disorders I Identify With:</label>
     <section class="disorders">
-
-    </section>
+        <div>
         <input type="checkbox" name="disorder" id="substance-abuse" value="substance-abuse">
         <label for="substance-abuse">Alcohol/Substance Abuse and Dependence</label>
         <br>
@@ -88,9 +91,9 @@
         <input type="checkbox" name="disorder" id="eating-disorder" value="eating-disorder">
         <label for="eating-disorder">Eating Disorder</label>
         <br>
-        <input type="checkbox" name="disorder" id="OCD" value="OCD">
-        <label for="OCD">Eating Disorder</label>
-        <br>
+        </div>
+
+        <div>
         <input type="checkbox" name="disorder" id="PTSD" value="PTSD">
         <label for="PTSD">Post Traumatic Stress Disorder (PTSD)</label>
         <br>
@@ -109,27 +112,30 @@
         <input type="checkbox" name="disorder" id="dissociative" value="dissociative">
         <label for="dissociative">Dissociative Identity Disorder</label>
     <br>
-    <section class="bio">
-            <label for="bio">Write a Short Biography For Your Profile Page</label>
-            <br>
-            <textarea id="bio" name="bio" rows="3" cols="40"></textarea>
-          </section>
+    </div>
+</section>
+        <label for="bio">Write a Short Biography For Your Profile Page</label>
+        <textarea id="bio" name="bio" rows="3" cols="40"></textarea>
     <input type="submit" value="Sign Up">
+    <form>
+        <input type="submit" value="Cancel" href="./index.html">
+    </form>
     <br>
 </form>
-<form>
-    <input type="submit" value="Cancel">
-</form>
+
 </div>
-<div>
+<div class="login">
+    <h3>Login</h3>
+    <hr>
     <form action=>
     <label for="username">Username:</label>
     <input id="username" name="username" type="text" required minlength="5" maxlength="20">
     <br>
     <label for="pw">Password:</label>
-    <input id="pw" name="pw" type="password" required minlength="8" maxlength="15"></div>
+    <input id="pw" name="pw" type="password" required minlength="8" maxlength="15">
     <input type="submit" value="Login">
     </form>
+</div>
 </div>
 
 <br>
