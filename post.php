@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="refresh" content="3;url=./profile.php" />
 
     <!-- Bootstrap CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
@@ -41,7 +42,7 @@
                 <a class="nav-link" href="./resources.html">Resources</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="./profile.html">Profile</a>
+                <a class="nav-link" href="./profile.php">Profile</a>
             </li>
             </ul> 
             </div>     
@@ -49,42 +50,41 @@
     </div>
 </nav>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
 <?php
+
 $servername = "rds-mysql-hackathon2019.cobjudu8cprj.us-east-1.rds.amazonaws.com";
 $username = "JessicaAWS";
 $password = "jessaws1027";
 $dbname = "hackathon_vera_2019";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$con = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+
+  die('Could not connect: ' . $con->connect_error);
+
+}
+
+$sql= "INSERT INTO posts (uname, posts)
+    VALUES
+    ('jchang', '$_POST[post]')";
+
+$result = $con->query($sql);
+
+if ($result){
+    echo "<br><h2 style='text-align: center;'>Post created successfully!</h2>";
+    echo "<br><h4 style='text-align: center;'>Redirecting you in 3 seconds...</h4>";    
+} else{
+    echo "Query Failed: " . $sql . "<br>" . $con->error;
 } 
 
-$sql = "SELECT * FROM users WHERE uname = 'jchang'";
-$result = $conn->query($sql);
+$con->close();
 
-if( $_GET["username"])
-{
-    echo $_GET['username']. "<br />";
-    exit();
-}
+?>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
     
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        echo "<br> Username: ". $row["username"]. "<br> Pronouns: ". $row["pronouns"]. "<br> Age" . $row["age"] . "<br>";
-    }
-} else {
-    echo "Unavailable";
-}
-
-$conn->close();
-?> 
-
 </body>
-

@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/profile_style.css" rel="stylesheet">
     
     <title>Hackathon 2019</title>
 </head>
@@ -49,6 +49,7 @@
     </div>
 </nav>
 
+<div class="con">
 <?php
 $servername = "rds-mysql-hackathon2019.cobjudu8cprj.us-east-1.rds.amazonaws.com";
 $username = "JessicaAWS";
@@ -64,16 +65,38 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM users WHERE uname = 'jchang'";
 $result = $conn->query($sql);
 
-if( $_GET["username"])
+if( !$result)
 {
-    echo $_GET['username']. "<br />";
+    echo "Error with query.";
     exit();
 }
     
 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        echo "<br> Username: ". $row["username"]. "<br> Pronouns: ". $row["pronouns"]. "<br> Age" . $row["age"] . "<br>";
+    while($row = $result->fetch_assoc()) { ?>
+    <div class = "profile">
+        
+        <img src = "./img/avatar.jpg">
+        <br>
+        <br><strong>Username: </strong>
+        <?php 
+        echo $row["uname"];
+        ?>
+        <br><strong>Pronouns: </strong>
+        <?php
+        echo $row["pronouns"];
+        ?>
+        <br><strong>Age: </strong>
+        <?php 
+        echo $row["age"]
+        ?>
+        <br><strong>Bio: </strong>
+        <?php
+        echo $row["bio"]
+        ?>
+
+    </div>
+    <?php
     }
 } else {
     echo "Unavailable";
@@ -82,6 +105,59 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?> 
 
+<div class="column">
+<div class="textbox">
+    <form action="post.php", method="post">
+    <label for="post"><strong>How are you feeling?</strong></label><br>
+    <textarea id="post" name="post" rows="3" cols="40"></textarea><br>
+    <input type="submit" value="Share post">
+    </form>
+</div>
+
+<div class="posts">
+
+    <?php
+    $servername = "rds-mysql-hackathon2019.cobjudu8cprj.us-east-1.rds.amazonaws.com";
+    $username = "JessicaAWS";
+    $password = "jessaws1027";
+    $dbname = "hackathon_vera_2019";
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    
+    $sql = "SELECT * FROM posts WHERE uname = 'jchang'";
+    $result = $conn->query($sql);
+    
+    if( !$result)
+    {
+        echo "Error with query.";
+        exit();
+    }
+        
+    
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {?>
+        <div class="post">
+            <?php 
+            echo $row["posts"];
+            ?>
+            </div>
+            <?php
+        }
+    } else {
+        //echo "Unavailable";
+    }
+    
+    $conn->close();
+    ?> 
+    </div>
+
+</div>
+
+</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
