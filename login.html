@@ -49,6 +49,7 @@
     </div>
 </nav>
 
+<div>
 <form>
     <label for="pronouns">Pronouns:</label>
     <input id="pronouns" name="pronouns" type="text">
@@ -115,11 +116,23 @@
           </section>
     <input type="submit" value="Sign Up">
     <br>
+    <form>
+            <input type="submit" value="Cancel">
+    </form>
 </form>
+</div>
+<div>
+    <form>
+    <label for="username">Username:</label>
+    <input id="username" name="username" type="text" required minlength="5" maxlength="20">
+    <br>
+    <label for="pw">Password:</label>
+    <input id="pw" name="pw" type="password" required minlength="8" maxlength="15"></div>
+    <input type="submit" value="Login">
+    </form>
+</div>
 <br>
-<form>
-        <input type="submit" value="Cancel">
-</form>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
