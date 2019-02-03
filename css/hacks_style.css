@@ -1,0 +1,22 @@
+body {
+    background-image: linear-gradient(rgb(167, 208, 221),rgb(248, 176, 168));
+    height: 100%;
+} 
+
+.con{
+    color: white;
+    margin: auto;
+    width: 50%;
+    padding: 150px 0;
+}
+.con > ul > li> a:hover{
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.con > ul > li > a{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 30px;
+}
