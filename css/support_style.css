@@ -13,3 +13,27 @@ body {
     color: whitesmoke; 
     font-size: 20px;
 }
+
+.buttons{
+    padding: 125px 500px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+a.button{
+    flex: 30%;
+    background-color: transparent;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    color: white;
+    border: 2px solid white;
+    display: block;
+    font-size: 30px;
+    flex-grow: 1;
+    appearance: button;
+    border-radius: 10px;
+}
