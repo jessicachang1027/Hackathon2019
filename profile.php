@@ -34,13 +34,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="./education.html">Education</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./resources.html">Resources</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="./profile.php">Profile</a>
             </li>
             </ul> 
@@ -49,13 +49,43 @@
     </div>
 </nav>
 
+<?php
+$servername = "rds-mysql-hackathon2019.cobjudu8cprj.us-east-1.rds.amazonaws.com";
+$username = "JessicaAWS";
+$password = "jessaws1027";
+$dbname = "hackathon_vera_2019";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT * FROM users WHERE uname = 'jchang'";
+$result = $conn->query($sql);
+
+if( $_GET["username"])
+{
+    echo $_GET['username']. "<br />";
+    exit();
+}
+    
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "<br> Username: ". $row["username"]. "<br> Pronouns: ". $row["pronouns"]. "<br> Age" . $row["age"] . "<br>";
+    }
+} else {
+    echo "Unavailable";
+}
+
+$conn->close();
+?> 
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-</body>
 
-<div>
-    <h4>Panic Disorder</h4>
-    <p>Information Coming Soon</p>
-    <button type="button" onclick="window.location.href='disorders.html'">Back to Disorders List</button>
-</div>
+    
+</body>
