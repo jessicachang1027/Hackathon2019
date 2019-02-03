@@ -77,21 +77,12 @@ $sql= "SELECT * FROM users WHERE uname = '$uname'";
 $result = $con->query($sql);
 
 if ($result){
-    echo "<table>";
     $row = $result->fetch_array();
-    if($uname == $row['uname']){
-        if($uname==$row['user'] && $pass==$row['password']) {
-            header("Location: http://localhost/Hackathon2019/index.php");
-        } else {
-            header("Location:login.php?id=username already taken or your password is incorrect. Please try again");
-        }
+    if($uname==$row['uname'] && $pass==$row['password']) {
+        header("Location:index.html");
+    } else {
+        header("Location:login_error.html");
     }
-    else {
-        mysqli_query("alter table login auto_increment = 1;");
-        $qry_name=mysql_query("INSERT INTO login(user,password) VALUES('$uname','$pass')");
-        header("Location: welcome.php?id=$uname");
-    }
-
     
 } else{
     echo "Query Failed: " . $sql . "<br>" . $con->error;
