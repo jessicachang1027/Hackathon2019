@@ -1,0 +1,78 @@
+body {
+    background-image: linear-gradient(rgb(167, 208, 221),rgb(248, 176, 168));
+    color: whitesmoke;
+    text-align: center;
+}
+
+.con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 250px 400px;
+}
+
+.welcome{
+    border: 2px solid white;
+    font-style: italic;
+    margin: auto;
+    padding: 15px 25px;
+    text-align: center;
+}
+
+.welcome_text{
+    padding: 0 100px;
+}
+
+.link{
+    padding: 200px 0 0 0;
+}
+
+a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about_section{
+    padding: 100px 0;
+}
+
+.about{
+    font-style: italic;
+    margin: auto;
+    padding: 15px 25px 0 25px;
+}
+
+p{
+    font-size: 30px;
+}
+
+.dot{
+    height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border: 3px solid white;
+  margin: 15px 45px; 
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 25px;
+}
+
+.description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descr{
+    flex: 33%;
+    margin: 0 50px;
+    text-align: center;
+}
