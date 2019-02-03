@@ -1,0 +1,36 @@
+body {
+    background-image: linear-gradient(rgb(167, 208, 221),rgb(248, 176, 168));
+}  
+
+.buttons{
+    padding: 125px 500px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+a.button{
+    flex: 30%;
+    background-color: transparent;
+    padding: 100px;
+    margin: 30px;
+    text-align: center;
+    color: white;
+    border: 2px solid white;
+    display: block;
+    font-size: 30px;
+    flex-grow: 1;
+    appearance: button;
+    border-radius: 10px;
+}
+
+a.button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.buttons a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
