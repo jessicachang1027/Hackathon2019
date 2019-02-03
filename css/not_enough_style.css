@@ -4,13 +4,13 @@ body {
 
 .con{
     display:flex;
-    padding: 50px;
+    padding: 50px 500px;
     justify-content: center;
 }
 
 .information{
     display: inline-block;
-    
+    text-align: center;
     width: 1100px;  
     color: whitesmoke; 
     font-size: 20px;
