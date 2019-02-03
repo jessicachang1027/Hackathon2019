@@ -1,0 +1,13 @@
+body {
+    background-image: linear-gradient(rgb(167, 208, 221),rgb(248, 176, 168));
+}
+
+.container{
+    display:flex;
+}
+.information{
+    display: inline-block;
+    width: 1100px;  
+    color: whitesmoke; 
+    font-size: 20px;
+}
